@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Master from './components/Master'
+import Detail from './components/Detail'
 
 class App extends Component {
   render() {
     return (
       <div>
-        <div className="Master">
-
-        </div>
-        <div className="Detail">
-
-        </div>
+        < Master />
+        < Detail />
       </div>
     );
   }
