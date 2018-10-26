@@ -27,7 +27,7 @@ class Card extends Component {
         let { connectDragSource } = this.props
         return connectDragSource(
             <div className='Card'>
-                <h1 style={{ textAlign: "center" }}>Card</h1>
+                <h1 style={{ margin: 0, textAlign: "center" }}>Card</h1>
             </div>
         )
     }

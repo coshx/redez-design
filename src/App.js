@@ -7,8 +7,10 @@ import HTML5Backend from 'react-dnd-html5-backend';
 
 class App extends Component {
   render() {
+    let logo = require('./images/redez_logo.png')
     return (
       <div>
+        <img src={logo} alt={"redez logo"} style={{ display: 'block', width: '20%' }} />
         < Canvas />
         < Master />
       </div>
