@@ -4,14 +4,15 @@ import { DropTarget } from 'react-dnd'
 
 let dropSpec = {
     drop: function(props, monitor, component) {
-        console.log('dropped!')
         let item = monitor.getItem()
-        console.log(item)
         let views = component.state.views
-        views.push(item.view)
-        component.setState({
-            views
-        })
+        if(!views.find(val => val.key === item.view.key)) {
+            //don't add duplicate view
+            views.push(item.view)
+            component.setState({
+                views
+            })
+        }
     }
 }
 

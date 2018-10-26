@@ -1,23 +1,23 @@
 import React, { Component } from 'react'
 import './Card.css'
 import { DragSource } from 'react-dnd'
-import uuid from 'uuid/v4'
+let uuid = require('uuid/v4')
 
 let dragSpec = {
-    beginDrag: function(props, monitor, component) {
-        console.log("began dragging a Card!")
-        let item = { id: props.id, view: < DraggableCard key={uuid()} /> }
+    beginDrag: function (props, monitor, component) {
+        let { duplicate, id: oldKey } = props
+        let key = duplicate ? uuid() : oldKey
+        let item = { view: <DraggableCard id={key} key={key} /> }
         return item
     },
-    isDragging: function(props, monitor) {
-        return monitor.getItem().id === props.id
+    endDrag: function(props, monitor, component) {
+        //todo: delete a card after moving it in the canvas
     }
 }
 
-let collect = function(connect, monitor) {
+let collect = function (connect, monitor) {
     return {
         connectDragSource: connect.dragSource(),
-        isDragging: monitor.isDragging()
     }
 }
 
@@ -28,7 +28,7 @@ let options = {
 class Card extends Component {
 
     render() {
-        let { isDragging, connectDragSource } = this.props
+        let { connectDragSource } = this.props
         return connectDragSource(
             <div className='Card'>
                 <h1 style={{ textAlign: "center" }}>Card</h1>

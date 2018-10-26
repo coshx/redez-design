@@ -10,7 +10,7 @@ export default class Master extends Component {
         return (
             <div className="Master">
                 <div className="DesignComponentList">
-                    <Card id='0'/>
+                    <Card duplicate={true} />
                 </div>
             </div>
         )
