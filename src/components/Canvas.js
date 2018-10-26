@@ -5,14 +5,21 @@ import { DropTarget } from 'react-dnd'
 let dropSpec = {
     drop: function(props, monitor, component) {
         let item = monitor.getItem()
+        let position = monitor.getSourceClientOffset()
+        position.y -= 20
+        let view = item.view
         let views = component.state.views
-        if(!views.find(val => val.key === item.view.key)) {
-            //don't add duplicate view
-            views.push(item.view)
-            component.setState({
-                views
-            })
+        let existingView = views.find(val => val.view.key === view.key)
+        if (existingView) {
+            existingView.position = position
         }
+        else {
+            //don't add duplicate view
+            views.push({view, position})
+        }
+        component.setState({
+            views
+        })
     }
 }
 
@@ -40,7 +47,11 @@ class Canvas extends Component {
         return connectDropTarget(
             <div className='Canvas'>
                 { this.state.views.map(view => {
-                    return view
+                    return (
+                        <div key={view.view.key} style={{position: 'absolute', left: view.position.x, top: view.position.y}}>
+                            {view.view}
+                        </div>
+                    )
                 })}
             </div>
         )

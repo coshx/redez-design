@@ -17,12 +17,8 @@ let dragSpec = {
 
 let collect = function (connect, monitor) {
     return {
-        connectDragSource: connect.dragSource(),
+        connectDragSource: connect.dragSource()
     }
-}
-
-let options = {
-
 }
 
 class Card extends Component {
@@ -37,6 +33,6 @@ class Card extends Component {
     }
 }
 
-let DraggableCard = DragSource("DesignComponent", dragSpec, collect, options)(Card)
+let DraggableCard = DragSource("DesignComponent", dragSpec, collect)(Card)
 
 export default DraggableCard
