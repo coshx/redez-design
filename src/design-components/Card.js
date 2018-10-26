@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import './Card.css'
 import { DragSource } from 'react-dnd'
+import uuid from 'uuid/v4'
 
 let dragSpec = {
     beginDrag: function(props, monitor, component) {
         console.log("began dragging a Card!")
-        let item = { id: props.id}
+        let item = { id: props.id, view: < DraggableCard key={uuid()} /> }
         return item
     },
     isDragging: function(props, monitor) {
@@ -36,4 +37,6 @@ class Card extends Component {
     }
 }
 
-export default DragSource("DesignComponent", dragSpec, collect, options)(Card)
+let DraggableCard = DragSource("DesignComponent", dragSpec, collect, options)(Card)
+
+export default DraggableCard
