@@ -1,4 +1,19 @@
-.App {
+.Master {
+  position: absolute;
+  height: 100%;
+  width: 25%;
+  background: black;
+}
+
+.Detail {
+  position: absolute;
+  left: 25%;
+  height: 100%;
+  width: 75%;
+  background: lime;
+}
+
+/* .App {
   text-align: center;
 }
 
@@ -29,4 +44,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
