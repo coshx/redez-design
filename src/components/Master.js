@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import './Master.css';
 
-class Master extends Component {
+//Design Components
+import Card from '../design-components/Card'
+//
+export default class Master extends Component {
 
     render() {
         return (
             <div className="Master">
-            
+                <div className="DesignComponentList">
+                    <Card id='0'/>
+                </div>
             </div>
         )
     }
 }
-
-export default Master;

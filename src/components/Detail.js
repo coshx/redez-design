@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Detail.css'
 
-class Detail extends Component {
+export default class Detail extends Component {
 
     render() {
         return (
@@ -11,5 +11,3 @@ class Detail extends Component {
         )
     }
 }
-
-export default Detail;
