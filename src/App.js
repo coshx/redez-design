@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 import { DragDropContext } from 'react-dnd'
 import Master from './components/Master'
-import Detail from './components/Detail'
+import Canvas from './components/Canvas'
 import HTML5Backend from 'react-dnd-html5-backend';
 
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div>
         < Master />
-        < Detail />
+        < Canvas />
       </div>
     );
   }
